@@ -17,6 +17,7 @@
         inputMsg: {
           a: '数据'
         },
+        time: '2020-06-06 14:14:26'
       }
     },
     watch: {
@@ -40,6 +41,9 @@
       testA() {
         return this.inputMsg.a
       }
+    },
+    beforeRouteEnter (to, from, next) {
+      
     },
     mounted() {
       window.addEventListener('click', _.debounce(this.test, 2000), false)
@@ -87,6 +91,8 @@
   #computed-watch {
     .msg {
       color: @color;
+      font-variant: small-caps;
+      font-variant: small-caps;
       font-variant: small-caps;
     }
   }

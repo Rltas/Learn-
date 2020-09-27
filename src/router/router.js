@@ -3,16 +3,20 @@ import Router from 'vue-router'
 import {
   from
 } from 'core-js/fn/array'
-
+import { resolve } from 'core-js/fn/promise'
+import Test from './test'
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'hash',
   base: process.env.BASE_URL,
   routes: [{
     path: '/',
     name: 'home',
-    component: () => import('views/Home.vue')
+    component: () => import('views/Home.vue'),
+    meta: {
+      title: '首页'
+    }
   }, {
     path: '/introduce',
     name: 'introduce',
@@ -28,7 +32,10 @@ export default new Router({
   }, {
     path: '/computedWatch',
     name: 'computedWatch',
-    component: () => import('views/ComputedWatch.vue')
+    component: () => import('views/ComputedWatch.vue'),
+    meta: {
+      title: '观察页'
+    }
   }, {
     path: '/classStyle',
     name: 'classStyle',
@@ -83,7 +90,11 @@ export default new Router({
     path: '/ele',
     name: 'ele',
     component: () => import('views/Ele')
-  }, {
+  },{
+    path: '/model',
+    name: 'model',
+    component: () => import('views/Model.vue')
+  },{
     path: '*', //用于匹配所有路由，通常用于404页面
     // redirect: '/login' //重定向到登录页
     component: () => import('views/NotFound')
@@ -91,15 +102,23 @@ export default new Router({
     path: '/vuex',
     name: 'vuex',
     component: () => import('views/Vuex')
-  }],
+  },...Test],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {
-      return {
-        x: 0,
-        y: 0
+      if (from.meta.keepAlive) {
+        from.meta.savedPosition = document.body.scrollTop
+      } else {
+        return {
+          x: 0,
+          y: to.meta.savedPosition || 0
+        }
       }
     }
   }
 })
+
+
+
+export default router

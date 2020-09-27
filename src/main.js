@@ -10,6 +10,8 @@ import Sun from 'components/Sun'
 import mixin from 'utils/mixin.js'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import NProgress from 'nprogress' 
+import 'nprogress/nprogress.css'
 Vue.use(Vant)
 Vue.config.productionTip = false
 Vue.prototype.$utils = utils
@@ -34,6 +36,30 @@ const state = Vue.observable({
 Vue.filter('cas', (val) => {
   return val.charAt(0).toUpperCase() + val.slice(1)
 })
+
+NProgress.configure({
+  easing: 'ease',
+  speed: 500,
+  showSpinner: false,
+  trickleSpeed: 200,
+  minimum: 0.3,
+  color: "#000"
+})
+
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next();
+})
+
+router.afterEach((to, from, next) => {
+  NProgress.done()
+})
+
+console.log(router, '路由')
+
 new Vue({
   router,
   store,

@@ -143,11 +143,11 @@ export function joint(obj) {
  * 防抖
  */
 
- export function debounce(fnc, delay = 100) {
+export function debounce(fnc, delay = 100) {
   let timer = null;
-  return function() {
+  return function () {
     let context = this,
-        args = arguments;
+      args = arguments;
     clearTimeOut(timer);
     timer = setTimeout(() => {
       fnc.apply(context, args)
@@ -159,15 +159,17 @@ export function joint(obj) {
  * 节流
  */
 
-  export function throttle(fn, delay = 100) {
-    let prev = Date.now(),
-        context = this,
-        args = arguments;
-    return function() {
-      let now = Date.now();
-      if(now - prev >= delay) {
-        fn.apply(context, args);
-        prev = Date.now();
-      }
+export function throttle(fn, delay = 100) {
+  let prev = Date.now(),
+    context = this,
+    args = arguments;
+  return function () {
+    let now = Date.now();
+    if (now - prev >= delay) {
+      fn.apply(context, args);
+      prev = Date.now();
     }
   }
+}
+
+

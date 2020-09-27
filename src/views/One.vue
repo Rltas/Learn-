@@ -1,7 +1,7 @@
 <template>
   <div id="one">
     祖父{{msg}}
-    <Two v-bind="list" @son="son" @grandSon="grandSon"></Two>
+    <Two v-bind="list" @son="son" @grandSon="grandSon" ref="two" :syncInfo.sync="syncInfo"></Two>
     <van-button type="default" v-once @click="goDynamic">默认按钮</van-button>
   </div>
 </template>
@@ -22,23 +22,33 @@
     },
     mounted() {
       window.addEventListener('resize', this.mustom, false)
+      console.log(this.$refs.two, '测试子组件数据', this.$root)
     },
     data() {
       return {
         list: {
           name: '今夜？',
-          age: 27
+          age: 27,
         },
+        syncInfo: 'sync',
         msg: '123',
         obj: {
           count: 0
-        }
+        },
+        dataTest: this.fooAncestor
       }
     },
+    beforeRouteEnter (to, from, next) {
+      // ...
+      setTimeout(() => {
+        next()
+      }, 3000)
+    },
     provide: {
-      foo: '这是一个高阶组件',
-      highOrder() {
-        return this.obj
+      fooAncestor: '这是祖先组件提供的一个data实例',
+      ancestorMethod:()=> {
+        // this.fooAncestor = '改变祖先实例'
+       
       }
     },
     watch: {
