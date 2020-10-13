@@ -5,4 +5,11 @@ export default [{
   meta: {
     title: '用例'
   }
+}, {
+  path: '/async',
+  name: 'async',
+  component: () => import('../views/Async.vue'),
+  meta: {
+    title: '异步处理'
+  }
 }]

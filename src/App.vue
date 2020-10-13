@@ -19,15 +19,14 @@
     created() {
       this.deployRem(document, window);
       axios.defaults.headers.common['Authorization'] = 'wuguang'
-      this.$api.getIndexInfo().then(res => {
-        console.log(res);
-      })
-      this.$api.getDemo()
-      this.testOnce()
-      
+      // this.$api.getIndexInfo().then(res => {
+      //   console.log(res);
+      // })
+      // this.$api.getDemo()
+      let arr = [1, 2, 3,4]
     },
     mounted() {
-     
+ 
     },
     
     beforeDestroy() {
@@ -57,15 +56,8 @@
             getRem()
           }
       },
-      testOnce() {
-        // let timer = setInterval(() => {
-        //   console.log(123)
-        // }, 500)
-        // this.$once("hook:beforeDestroy", () => {
-        //   console.log("退出程序")
-        //   clearInterval(timer)
-        //   timer = null
-        // })
+      testOnce(data) {
+       
       }
     }
   }

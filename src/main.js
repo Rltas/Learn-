@@ -58,8 +58,6 @@ router.afterEach((to, from, next) => {
   NProgress.done()
 })
 
-console.log(router, '路由')
-
 new Vue({
   router,
   store,

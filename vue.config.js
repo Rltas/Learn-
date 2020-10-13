@@ -38,7 +38,12 @@ module.exports = {
         target: 'http://cs.yujiaojiaoyu.com',
         changeOrigin: true,
         ws: true
-      }
+      },
+      // '/app/user_info.htm': {
+      //   target: 'http://cs.yujiaojiaoyu.com',
+      //   changeOrigin: true,
+      //   ws: true
+      // }
     }
   },
   configureWebpack: {

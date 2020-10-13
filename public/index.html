@@ -13,5 +13,12 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      let _toString = Object.prototype.toString;
+      let toRawType = val => _toString.call(val).slice(8, -1);
+      console.log(toRawType([]))
+      let str = '123456'
+      console.log(str.slice(3, -1))
+    </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
   let mixin = {
     created() {
-      this.hello()
+      // this.hello()
     },
     data() {
       return {
@@ -9,7 +9,7 @@
     },
     methods: {
       hello() {
-        console.log('hello')
+        // console.log('hello')
       }
     }
   }

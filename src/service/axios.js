@@ -7,11 +7,11 @@ axios.defaults.headers.common['Authorization'] = store.state.token
 /**
  * 响应拦截 不允许游客模式
  */
-axios.interceptors.response.use(res => {
-  if (res.data.code == 406) {
-    console.log('未登录！');
-  } else {
-    return res
-  }
-})
+// axios.interceptors.response.use(res => {
+//   if (res.data.code == 406) {
+//     console.log('未登录！');
+//   } else {
+//     return res
+//   }
+// })
 export default axios
