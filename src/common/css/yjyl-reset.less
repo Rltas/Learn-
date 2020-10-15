@@ -1,0 +1,78 @@
+.noscroll {
+  height: 100vh;
+  overflow: hidden;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+li {
+  list-style: none;
+}
+
+img[lazy="loading"] {
+  background-color: #eee;
+}
+
+img[lazy="error"] {
+  background-image: url(../images/images.png);
+}
+
+img[lazy="loaded"] {
+  background-color: #eee;
+}
+
+.weui-dialog__bd {
+  color: #000 !important;
+}
+
+.vux-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.vux-tab .vux-tab-item.vux-tab-selected {
+  color: #b22a32 !important;
+  border-bottom: 2px solid #b22a32 !important;
+}
+.vux-tab .vux-tab-item {
+  font-size: 14px !important;
+  line-height: 40px !important;
+}
+.vux-tab {
+  height: 40px !important;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.header-icon {
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.alert {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+button {
+  border:none;
+  outline: none;
+}
+.clearboth:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearboth{zoom:1}

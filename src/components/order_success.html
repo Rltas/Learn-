@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title></title>
+    <style>
+        *{padding: 0;margin: 0;font-family:"Helvetica","Microsoft Yahei";}
+        html{font-size: 62.5%;}
+        body{background:#fff;}
+        ul,li{list-style: none;}
+        input{border:none;-webkit-appearance: none;}
+        a{text-decoration: none;color:#333;}
+
+        .orderr{
+            padding: 20px 0;
+            width: 100%;
+            /*height: 200px;*/
+            background-color: #1fbba6;
+        }
+        .tit{
+            display: block;
+            text-align: center;
+            font-size: 36px;
+            height: 120px;
+            line-height: 120px;
+            color: #fff;
+        }
+        .pay,p{
+            font-size: 17px;
+            padding: 10px 20px;
+        }
+        .back{
+            display: block;
+            padding: 10px;
+            width: 30%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 17px;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="orderwrap">
+        <div class="orderr">
+            <div>
+                <span class="tit">订单支付成功</span>
+                <a class="back" href="">返回首页</a>
+            </div>
+            
+        </div>
+    </div>
+    <div class="pay">
+        付款金额：<span>$!{obj.totalPrice}元</span>
+    </div>
+    <p class="ordernumber">订单号：<span>$!{obj.order_id}</span></p>
+    <p class="info">收货信息：<span>$!{obj.addr.area.parent.parent.areaName} $!{obj.addr.area.parent.areaName} $!{obj.addr.area.areaName} $!{obj.addr.area_info}</span></p>
+</body>
+</html>
